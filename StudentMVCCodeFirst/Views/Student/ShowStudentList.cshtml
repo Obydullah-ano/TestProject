@@ -1,0 +1,65 @@
+﻿
+@{
+    ViewBag.Title = "ShowStudentList";
+}
+<script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+<script>
+    function clear() {
+        $("#divStudents").empty();
+    }
+</script>
+<p>
+    @DateTime.Now.ToLongTimeString();
+</p>
+<ul class="nav nav-tabs">
+    <li class="active">
+        <a data-toggle="tab">
+            @Ajax.ActionLink("StudentList", "StudentList", new AjaxOptions()
+            {
+                HttpMethod = "Get",
+                UpdateTargetId = "divStudents",
+                InsertionMode = InsertionMode.Replace,
+                LoadingElementId = "divProgress",
+                OnBegin = "clear",
+                LoadingElementDuration = 1000
+            })
+        </a>
+    </li>
+    <li>
+        <a data-toggle="tab">
+            @Ajax.ActionLink("StudentList Desc", "StudentListDesc", new AjaxOptions()
+            {
+                HttpMethod = "Get",
+                UpdateTargetId = "divStudents",
+                InsertionMode = InsertionMode.Replace,
+                LoadingElementId = "divProgress",
+                OnBegin = "clear",
+                LoadingElementDuration = 1000
+            })
+        </a>
+    </li>
+    <li>
+        <a data-toggle="tab">
+            @Ajax.ActionLink("StudentList Asc", "StudentListAsc", new AjaxOptions()
+            {
+                HttpMethod = "Get",
+                UpdateTargetId = "divStudents",
+                InsertionMode = InsertionMode.Replace,
+                LoadingElementId = "divProgress",
+                OnBegin = "clear",
+                LoadingElementDuration = 1000
+            })
+        </a>
+    </li>
+</ul>
+
+<div id="divProgress" style="display:none">
+
+    @*<img src="~/Images/Loading.gif" width="100" height="100" />*@
+    @*<img src="~/Images/Loading1.png" width="150" height="150" />*@
+    <img src="~/Images/Loading2.gif" width="150" height="150" />
+    @*<img src="~/Images/GreatEmbarrassedBorer-size_restricted.gif" width="300" height="100" />*@
+</div>
+<div id="divStudents">
+</div>
+

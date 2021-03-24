@@ -1,0 +1,27 @@
+﻿@model IEnumerable<StudentMVCCodeFirst.Models.ViewModels.UserRoleViewModel>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>User wise Role Name</h2>
+<table class="table table-striped">
+    <tr>
+        <th>User Name</th>
+        <th>Role Name</th>
+        <th>Actions...</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@Html.DisplayFor(modelItem => item.UserName)</td>
+            <td>@Html.DisplayFor(modelItem => item.RoleName)</td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.RoleId })|
+                @Html.ActionLink("Delete", "Delete", new { id = item.RoleId })|
+                @Html.ActionLink("Details", "Details", new { id = item.RoleId })|
+            </td>
+        </tr>
+    }
+</table>
+
+

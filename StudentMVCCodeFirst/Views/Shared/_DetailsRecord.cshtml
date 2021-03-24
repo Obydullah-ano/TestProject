@@ -1,0 +1,39 @@
+﻿@model StudentMVCCodeFirst.Models.ViewModels.StudentListViewModel
+@{
+    ViewBag.Title = "Details";
+}
+
+<div class="container">
+    
+    @Html.HiddenFor(model => model.StudentId)
+    <div class="form-group">
+        <div class="col-lg-6">
+            <table class="table table-bordered">
+                <tr>
+                    <th colspan="2" class="text-center">Student Details Information</th>
+                </tr>
+                <tr>
+                    <td>@Html.DisplayNameFor(model => model.StudentName)</td>
+                    <td>@Html.DisplayFor(model => model.StudentName)</td>
+                </tr>
+                <tr>
+                    <td>@Html.DisplayNameFor(model => model.DateOfBirth)</td>
+                    <td>@Html.DisplayFor(model => model.DateOfBirth)</td>
+                </tr>
+                <tr>
+                    <td>@Html.DisplayNameFor(model => model.ImageName)</td>
+                    <td>@Html.DisplayFor(model => model.ImageName)</td>
+                </tr>
+                <tr>
+                    <td>@Html.DisplayNameFor(model => model.ImageUrl)</td>
+                    <td><img src="@Url.Content(Model.ImageUrl)" width="50" height="50" /></td>
+                </tr>
+            </table>
+        </div>
+        <div class="col-lg-6">
+        </div>
+    </div>
+
+</div>
+@Html.ActionLink("Back to Student List only", "Index")
+

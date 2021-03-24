@@ -1,0 +1,41 @@
+﻿@model IEnumerable<StudentMVCCodeFirst.Models.ViewModels.StudentListViewModel>
+@{
+    ViewBag.Title = "Index";
+}
+
+<p>
+    @DateTime.Now.ToLongTimeString();
+</p>
+<h2>Student List</h2>
+
+<div>
+    <table class="table table-bordered">
+        <tr>
+            <th>Student Id</th>
+            <th>Student Name</th>
+            <th>Date Of Birth</th>
+            <th>Course Name</th>
+            <th>Course Fee</th>
+            <th>Image Name</th>
+            <th>Image Url</th>
+
+        </tr>
+        @foreach (var item in Model)
+        {
+    <tr>
+        <td>@Html.DisplayFor(modelItem => item.StudentId)</td>
+        <td>@Html.DisplayFor(modelItem => item.StudentName)</td>
+        <td>@Convert.ToString(String.Format("{0:dd/MM/yyyy}", item.DateOfBirth))</td>
+        <td>@Html.DisplayFor(modelItem => item.CourseName)</td>
+        <td>@Html.DisplayFor(modelItem => item.CourseFee)</td>
+        <td>@Html.DisplayFor(modelItem => item.ImageName)</td>
+        <td><img src="@Url.Content(item.ImageUrl)" alt="Image" width="50" height="50" /></td>
+    </tr>
+        }
+    </table>
+    <div id="partialDiv">
+
+    </div>
+
+</div>
+
